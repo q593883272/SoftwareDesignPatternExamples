@@ -1,0 +1,76 @@
+buildscript {
+
+    ext {
+        slf4j_version = '2.0.0-alpha1'
+        lombok_version = "1.18.10"
+    }
+
+    repositories {
+        mavenLocal()
+        maven { url "https://maven.aliyun.com/repository/central" }
+        maven { url "https://maven.aliyun.com/repository/gradle-plugin" }
+        mavenCentral()
+    }
+
+    dependencies {
+
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'war'
+
+group 'com.raven.example.dp'
+version '1.0'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+[compileJava, compileTestJava, javadoc]*.options*.encoding = 'UTF-8'
+
+repositories {
+    mavenLocal()
+    maven { url "https://maven.aliyun.com/repository/central" }
+    maven { url "https://maven.aliyun.com/repository/gradle-plugin" }
+    mavenCentral()
+}
+
+configurations {
+    annotationProcessor
+    runtimeClasspath {
+        extendsFrom annotationProcessor
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    // JUnit Test
+    testImplementation "junit:junit:4.12"
+
+    // Slf4j
+    implementation "org.slf4j:slf4j-api:$slf4j_version"
+    implementation "org.slf4j:slf4j-simple:$slf4j_version"
+
+    // Lombok
+    implementation "org.projectlombok:lombok:$lombok_version"
+    annotationProcessor "org.projectlombok:lombok:$lombok_version"
+
+    // MySQL
+    implementation "mysql:mysql-connector-java:8.0.19"
+
+
+}
+
+task clearJar(type: Delete) {
+    delete 'build/libs/'
+}
+
+task cacheToLocalMavenRepository(type: Copy) {
+    from new File(gradle.gradleUserHomeDir, 'caches/modules-2/files-2.1')
+    into repositories.mavenLocal().url
+    eachFile {
+        List<String> parts = it.path.split('/')
+        it.path = (parts[0] + '/' + parts[1]).replace('.', '/') + '/' + parts[2] + '/' + parts[4]
+    }
+    includeEmptyDirs false
+}
