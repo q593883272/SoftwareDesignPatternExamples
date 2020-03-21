@@ -10,7 +10,7 @@ public class TestRun {
     public static void main(String[] args) throws Exception {
         Target adapter = new Adapter();
         adapter.connection();
-        System.out.println("操作...");
+        System.out.println("操作数据库中...");
         Thread.sleep(5000L);
         adapter.exit();
     }
