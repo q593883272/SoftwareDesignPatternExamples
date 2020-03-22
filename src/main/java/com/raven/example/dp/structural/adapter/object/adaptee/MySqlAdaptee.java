@@ -1,5 +1,7 @@
 package com.raven.example.dp.structural.adapter.object.adaptee;
 
+import com.raven.example.dp.structural.adapter.object.Adaptee;
+
 /**
  * MySQL适配者
  */

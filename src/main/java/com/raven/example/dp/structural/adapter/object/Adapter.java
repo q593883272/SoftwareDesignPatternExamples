@@ -1,7 +1,5 @@
 package com.raven.example.dp.structural.adapter.object;
 
-import com.raven.example.dp.structural.adapter.object.adaptee.Adaptee;
-
 /**
  * 适配器类
  */
