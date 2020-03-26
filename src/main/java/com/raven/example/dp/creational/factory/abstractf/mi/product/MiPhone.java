@@ -43,7 +43,7 @@ public class MiPhone implements PhoneProduct {
     }
 
     @Override
-    public void call(Long phoneNumber) {
+    public void call(String phoneNumber) {
         System.out.println(name() + " 打电话给[" + phoneNumber + "]!");
     }
 }

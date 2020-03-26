@@ -43,7 +43,7 @@ public class HuaWeiPhone implements PhoneProduct {
     }
 
     @Override
-    public void call(Long phoneNumber) {
+    public void call(String phoneNumber) {
         System.out.println(name() + " 打给[" + phoneNumber + "]!");
     }
 }

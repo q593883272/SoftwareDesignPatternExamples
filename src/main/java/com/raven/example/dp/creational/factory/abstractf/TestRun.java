@@ -16,7 +16,7 @@ public class TestRun {
         PhoneProduct miPhone = miFactory.createPhone();
         System.out.println(miPhone.parameter());
         miPhone.on();
-        miPhone.call(120L);
+        miPhone.call("120");
         miPhone.off();
         LaptopProduct miLaptop = miFactory.createLaptop();
         System.out.println(miLaptop.parameter());
@@ -29,7 +29,7 @@ public class TestRun {
         PhoneProduct huaWeiPhone = huaWeiFactory.createPhone();
         System.out.println(huaWeiPhone.parameter());
         huaWeiPhone.on();
-        huaWeiPhone.call(110L);
+        huaWeiPhone.call("110");
         huaWeiPhone.off();
         LaptopProduct huaWeiLaptop = huaWeiFactory.createLaptop();
         System.out.println(huaWeiLaptop.parameter());

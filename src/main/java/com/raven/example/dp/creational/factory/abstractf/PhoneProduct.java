@@ -41,7 +41,7 @@ public interface PhoneProduct {
     /**
      * 打电话
      */
-    void call(Long phoneNumber);
+    void call(String phoneNumber);
 
     /**
      * 手机属性信息
